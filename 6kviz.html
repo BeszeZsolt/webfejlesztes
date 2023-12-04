@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Besze Zsolt">
+    <meta name="description" content="Fénykardok a STAR WARS világából">
+    <link rel="icon" href="./kepek/general/favicon.png" type="image/x-icon">
+    <title>Fénykard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jsscript.js"></script>
+
+    <script src="./jquery/jquery-3.7.1.min.js"></script>
+    <script src="./jquery/jquery-validation-1.19.5/dist/jquery.validate.js"></script>
+    <script>
+        if (localStorage.getItem("oldal") == null) {
+            window.location.href = "index.html";
+        }
+        $(document).ready(function () {
+            $("#myform").validate({
+                rules: {
+                    1: {
+                        required: true
+                    },
+                    3: {
+                        required: true
+                    },
+                    hanyszinesz: {
+                        required: true
+                    },
+                    elsofilm: {
+                        required: true
+                    },
+                    solo: {
+                        required: true
+                    },
+                    quigon: {
+                        required: true
+                    },
+                    ackbar: {
+                        required: true,
+                        maxlength: 15
+                    },
+                },
+                messages: {
+                    1: {
+                        required: " Írj be egy filmcímet!"
+                    },
+                    3: {
+                        required: " Adj meg egy dátumot!"
+                    },
+                    hanyszinesz: {
+                        required: " Adj meg egy számot!"
+                    },
+                    elsofilm: {
+                        required: "Válassz egy évszámot!"
+                    },
+                    solo: {
+                        required: "Válassz egy színészt!"
+                    },
+                    quigon: {
+                        required: "Válassz egy karaktert!"
+                    },
+                    ackbar: {
+                        required: " Írj ide egy szöveget!",
+                        maxlength: " Az idézet túl hosszú!"
+                    },
+                },
+            });
+            $("#myform").submit(function (event) {
+                event.preventDefault();
+                if ($("#myform").valid()) {
+                    feldolgoz();
+                }
+            });
+
+            $("#myform2").validate({
+                rules: {
+                    nev: {
+                        required: true,
+                        maxlength: 50
+                    },
+                    jelszo: {
+                        required: true,
+                        minlength: 8
+                    },
+                    emailcim: {
+                        required: true,
+                        email: true
+                    },
+                    robot: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    nev: {
+                        required: " Írd be a neved!",
+                        maxlength: " A név legfeljebb 50 karakter hosszú lehet!"
+                    },
+                    jelszo: {
+                        required: " Add meg a jelszavad!",
+                        minlength: " A jelszavad legalább 8 karakter hosszú legyen!"
+                    },
+                    emailcim: {
+                        required: " Írd be az email címed!",
+                        email: " Kérlek valós email címet adj meg!"
+                    },
+                    robot: {
+                        required: " Kérlek igazold, hogy nem vagy droid!",
+                    },
+                },
+            });
+        });
+    </script>
+    <style>
+        label.error {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body onload="setside(), datum()">
+    <div id="content">
+        <header>
+            <a href="index.html">
+                <img id="logo" src="./kepek/general/logo.png" alt="Star wars logo">
+            </a>
+        </header>
+        <nav>
+            <ul>
+                <li class="szelso"></li>
+                <li><a href="#" onclick="window.location.href=kezdolap();">Kezdőlap</a></li>
+                <li><a href="1fenykard.html">A&nbsp;fénykard</a></li>
+                <li><a href="2parbaj.html">A&nbsp;fénykardpárbaj</a></li>
+                <li><a href="3fajtai.html">Fajtái</a></li>
+                <li><a href="4szinei.html">Színei</a></li>
+                <li><a href="5kulisszak.html">A&nbsp;kulisszák&nbsp;mögött</a></li>
+                <li id="current"><a href="#">Kvíz</a></li>
+                <li class="szelso">
+                    <a href="#" onClick="oldalcsere(); setside()" onMouseOver="mouse_over()" onMouseOut="mouse_out()"
+                        class="szelso tooltip">
+                        <img src="./kepek/general/rebellion.png" alt="Oldalváltó" class="valaszto" id="rebellion">
+                        <img src="./kepek/general/empire.png" alt="Oldalváltó" class="valaszto" id="empire">
+                        <span class="tooltiptext">Oldalváltó</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="flex">
+            <article>
+                <h1>Kvíz</h1>
+                <p>Szeretnéd letesztelni a Star Wars világához kapcsolódó tudásod? Töltsd ki az alábbi rövid kis tesztet,
+                    és mutasd meg, hogy veled van az Erő!</p>
+            </article>
+            <article>
+                <form id="myform">
+                    <p>1. Melyik az első film a történet szerint, vagyis kronológiai sorrendben?</p>
+                    <p>
+                        <label for="1">
+                            <input type="text" list="filmek" name="1" id="1" placeholder="A film címe">
+                            <datalist id="filmek">
+                                <option value="Skywalker kora"></option>
+                                <option value="A Sithek bosszúja"></option>
+                                <option value="Zsivány Egyes"></option>
+                                <option value="A klónok támadása"></option>
+                                <option value="A Birodalom visszavág"></option>
+                                <option value="Baljós árnyak"></option>
+                                <option value="Az ébredő Erő"></option>
+                                <option value="Solo"></option>
+                                <option value="Egy új remény"></option>
+                                <option value="Az utolsó Jedik"></option>
+                                <option value="A Jedi visszatér"></option>
+                            </datalist>
+                        </label>
+                    </p>
+                    <hr>
+                    <p>2. Eredetileg hány részesre tervezte George Lucas a Csillagok háborúját?</p>
+                    <p>1 <label for="2"><input type="range" min="1" max="10" step="1" value="6" name="resz" id="2"></label> 10</p>
+                    <hr>
+                    <p>3. Az év melyik napja a nemzetközi Star Wars nap?</p>
+                    <p><label for="3"><input type="date" name="3" id="3"></label></p>
+                    <hr>
+                    <p>4. Melyik évben jelent meg az első Star Wars mozifilm?<input type="radio" name="elsofilm" class="invisible"></p>
+                    <p>
+                        <label for="4a"><input type="radio" name="elsofilm" id="4a">1968</label><br>
+                        <label for="4b"><input type="radio" name="elsofilm" id="4b">1977</label><br>
+                        <label for="4c"><input type="radio" name="elsofilm" id="4c">1984</label><br>
+                        <label for="4d"><input type="radio" name="elsofilm" id="4d">2001</label>
+                    </p>
+                    <hr>
+                    <p>5. Hány színész alakította Darth Vadert az eredeti trilógiában? </p>
+                    <p><label for="5"><input type="number" name="hanyszinesz" id="5" min="0"></label></p>
+                    <hr>
+                    <p>6. Ki versengett Han Solo szerepéért az alábbi színészek közül?<input type="radio" name="solo" class="invisible"></p>
+                    <p>
+                        <label for="6a"><input type="radio" name="solo" id="6a">Clint Eastwood</label><br>
+                        <label for="6b"><input type="radio" name="solo" id="6b">Robert De Niro</label><br>
+                        <label for="6c"><input type="radio" name="solo" id="6c">Al Pacino</label><br>
+                        <label for="6d"><input type="radio" name="solo" id="6d">Robert Redford</label><br>
+                    </p>
+                    <hr>
+                    <p>7. Ki volt Qui-Gon Jinn mestere?<input type="radio" name="quigon" class="invisible"></p>
+                    <p>
+                        <label for="7a"><input type="radio" name="quigon" id="7a">Yoda</label><br>
+                        <label for="7b"><input type="radio" name="quigon" id="7b">Sifo-Dyas</label><br>
+                        <label for="7c"><input type="radio" name="quigon" id="7c">Mace Windu</label><br>
+                        <label for="7d"><input type="radio" name="quigon" id="7d">Dooku Gróf</label>
+                    </p>
+                    <hr>
+                    <p>8. Mi volt Ackbar admirális híres mondata?</p>
+                    <p><label for="8"><input type="text" name="ackbar" id="8" size="15"></label></p>
+                    <p>
+                        <button type="submit">Ellenőrzés</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="reset">Törlés</button><br>
+                    </p>
+                </form>
+            </article>
+            <article>
+                <form id="myform2" method="post" action="http://szamtud.uni-corvinus.hu/receive.php">
+                    <h1>Továbbiak...</h1>
+                    <p>
+                        Ha tetszett ez a weboldal, akkor iratkozz fel a hírlevelemre, hogy értesülj az újdonságokról!
+                    </p>
+                    <p>
+                        <label for="nev">
+                            Név:
+                            <input type="text" name="nev" placeholder="név" size="20" id="nev">
+                        </label>
+                    </p>
+                    <p>
+                        <label for="emailcim">
+                            Email cím:
+                            <input type="email" name="emailcim" placeholder="email" id="emailcim">
+                        </label>
+                    </p>
+                    <p>
+                        <label for="jelszo">
+                            Jelszó: <input type="password" name="jelszo" placeholder="jelszó" id="jelszo">
+                        </label>
+                    </p>
+                    <p>
+                        <label for="robot">
+                            Nem vagyok droid. <input type="checkbox" name="robot" id="robot">
+                        </label>
+                    </p>
+                    <p>
+                        <button type="submit">Küldés</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="reset">Törlés</button><br>
+                    </p>
+                </form>
+            </article>
+        </div>
+    </div>
+    <footer>Az oldal kizárólag tanulmányi célú. - Besze Zsolt 2023 Corvinus</footer>
+</body>
+
+</html>

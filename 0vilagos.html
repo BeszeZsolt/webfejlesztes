@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Besze Zsolt">
+    <meta name="description" content="Fénykardok a STAR WARS világából">
+    <link rel="icon" href="./kepek/general/favicon.png" type="image/x-icon">
+    <title>Fénykard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jsscript.js"></script>
+    <script>
+        if (localStorage.getItem("oldal") == null) {
+            window.location.href = "index.html";
+        }
+    </script>
+</head>
+
+<body onload="setside()">
+    <div id="content">
+        <header>
+            <a href="index.html">
+                <img id="logo" src="./kepek/general/logo.png" alt="Star wars logo">
+            </a>
+        </header>
+        <nav>
+            <ul>
+                <li class="szelso"></li>
+                <li id="current"><a href="#">Kezdőlap</a></li>
+                <li><a href="1fenykard.html">A&nbsp;fénykard</a></li>
+                <li><a href="2parbaj.html">A&nbsp;fénykardpárbaj</a></li>
+                <li><a href="3fajtai.html">Fajtái</a></li>
+                <li><a href="4szinei.html">Színei</a></li>
+                <li><a href="5kulisszak.html">A&nbsp;kulisszák&nbsp;mögött</a></li>
+                <li><a href="6kviz.html">Kvíz</a></li>
+                <li class="szelso">
+                    <a href="0sotet.html" onClick="oldalcsere(); setside()" onMouseOver="mouse_over()"
+                        onMouseOut="mouse_out()" class="szelso tooltip">
+                        <img src="./kepek/general/rebellion.png" alt="Oldalváltó" class="valaszto" id="rebellion">
+                        <img src="./kepek/general/empire.png" alt="Oldalváltó" class="valaszto" id="empire">
+                        <span class="tooltiptext">Oldalváltó</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <article>
+            <h1 id="valasztott">A világos oldalt választottad!<br>(Kattints a képre a váltáshoz)</h1>
+        </article>
+        <div class="flex">
+            <article class="idezetjobb">
+                <p>
+                    "Fénykard. Fürgébb és elegánsabb, mint a lézerpuska. Emberibb fegyver. Emberibb időre való."
+                </p>
+                <p class="dolt">
+                    Obi-Wan Kenobi (Egy új remény)
+                </p>
+            </article>
+            <a href="0sotet.html" class="fobal" onClick="oldalcsere(); setside()">
+                <img src="./kepek/general/anakin.png" alt="Anakin Skywalker" class="fokep fokep2">
+            </a>
+        </div>
+    </div>
+    <footer>Az oldal kizárólag tanulmányi célú. - Besze Zsolt 2023 Corvinus</footer>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Besze Zsolt">
+    <meta name="description" content="Fénykardok a STAR WARS világából">
+    <link rel="icon" href="./kepek/general/favicon.png" type="image/x-icon">
+    <title>Fénykard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jsscript.js"></script>
+
+    <link rel="stylesheet" href="./jquery/galleria-1.6.1/dist/galleria.classic.css">
+    <script src="./jquery/jquery-3.7.1.min.js"></script>
+    <script src="./jquery/galleria-1.6.1/dist/galleria.js"></script>
+    <script src="./jquery/galleria-1.6.1/dist/galleria.classic.theme.js"></script>
+    <script>
+        if (localStorage.getItem("oldal") == null) {
+            window.location.href = "index.html";
+        }
+        $(document).ready(function () {
+            $('#images').galleria(width = 500, height = 500);
+        });
+
+        /*-------------------https://galleriajs.github.io/docs/api/events.html-------------------*/
+        var kepindex;
+        Galleria.on('image', function (aktivkep) {
+        /*---------------------------------------------------------------------------------------*/
+            kepindex = aktivkep.index;
+            var cim;
+            var szoveg;
+            switch (kepindex) {
+                case 0:
+                    cim = "Kék"
+                    szoveg = "Kék színű kardokat azok a Jedi lovagok használták, akik legfőképpen a fénykardforgatásukra koncentráltak - ez a legtöbb Jedire igaz volt, így ez a leggyakoribb szín. A legjobb harcosoknak a kék fénykarddal rendelkezőket tekintették. Ez a szín jelképezi bölcsességüket, könyörületüket, bátorságukat és erejüket, ez testesíti meg az erős harcos Jedi jellemét, aki hűséges a világos oldalhoz és soha sem hagyná el a sötét oldalért.";
+                    break;
+                case 1:
+                    cim = "Zöld"
+                    szoveg = "Ez a másik legnépszerűbb szín a Jedi Rendben. A zöld szín a családi Jedik jelképe, akik nem a kard hatékony forgatására, hanem inkább az Erő bölcs használatára specializálódtak. Nem hiába használtak a Jedi Tanács tagjai közül sokan ilyen színű fénykardot. Yoda is ilyen kardot használt, aki a legbölcsebb mesterként ismert. A zöld fénykard használói általában sokkal több időt szentelnek az Erő képességeik, diplomáciai érzékük és tudásuk fejlesztésére, mint a fénykard vívás tapasztalataik fejlesztésére .";
+                    break;
+                case 2:
+                    cim = "Vörös"
+                    szoveg = 'A vörös fénykard a Sith nagyurak védjegye. Ellentétben a Jedikkel, akik kapcsolatban állnak a Kyber-kristályaikkal, amelyek színei aztán megváltoznak, a Sith-ek nem tudnak spirituális kapcsolatot kialakítani velük. És mivel a Jedik birtokolták az Ilum bolygót (a területet, ahol a legtöbb Kyber kristályt találták), a Sith-nek egyáltalán nem volt hozzáférése az értékes kristályokhoz, így improvizálniuk kellett. Ezért a Sith-ek mély meditációs ülések és egyedi kemencék segítségével elkezdték elkészíteni saját szintetikus fénykardkristályaikat. A folyamatot "kivéreztetésnek" nevezik, és abból áll, hogy minden gyűlöletet, félelmet és más negatív érzelmet a kristályba öntünk, amitől az "vérzik" és vörössé válik. Ami a tulajdonos személyiségét illeti, a velük rendelkező harcosok könnyen őrjöngenek. A vörös fénykard olyan embert szimbolizál, aki képtelen visszafogni az érzelmeit, és aki szinte minden problémáját brutalitással, erőszakkal és kegyetlenséggel oldja meg. Rendkívül kitartó emberek, ezek a harcosok semmitől sem riadnak vissza céljaik elérése érdekében, akár mindannak feláldozása árán is, ami számukra kedves, vagy ami megmaradt belőle.';
+                    break;
+                case 3:
+                    cim = "Lila"
+                    szoveg = "Ezt a színt nagyon kevés Jedi használta a Régi Köztársaság idején, mert a ruusani csata idején ez volt a Sithek második legkedveltebb színe. Pedig a szín igenis Jedi jellemre utal, ugyanis a színnek az újító Jedik jelképe nevet adták. Akik ilyen fénykardot használtak, azoknak mindig volt saját filozófiájuk és mindig újítottak valamit a Jedi Renden. A lila fénykard a használójának az Erő világos és sötét oldalához való kiegyensúlyozott kapcsolatát jelképezi. Mivel a lila a vörös és a kék kombinációja, a lila fegyverrel rendelkező Erőhasználó általában agresszív, merész és vakmerő volt, és félelem nélkül vezette társait a csatába. Erkölcsi kétértelműséget, bizonytalanságot és rekonstrukciót jelez. Az Erő világos és sötét oldalával való rokonságot mutatja. Röviden, ők olyan Jedik, akikben tökéletes egyensúly van, és tudják, hogyan hozzák ki a legjobbat mindkét aspektusból.<a href='5kulisszak.html#windu'><p class='dolt'>Az első lila fénykard történetét itt olvashatod</p></a>";
+                    break;
+                case 4:
+                    cim = "Sárga"
+                    szoveg = "Átalában a Jedi Templomőrök fegyverei. Ezek a személyek a Jedi Templomokban és más fontos helyeken szolgálnak, hogy megvédjék a Jedi-rendet és azokat, akik a templomokban tartózkodnak. Emellett olyan Jedik is használták, akik mind a fénykard vívásban, mind az Erő használatában közel tökéletes szintre emelkedtek. A Régi Köztársaság idején egyedül Plo Koon mesterről és Callista Mingről tudunk, aki ilyen pengés kardot használt. Ritkaságát tehát az is növeli, hogy a Jedik legtöbb esetben nem tudtak egyszerre a legkiválóbb kardforgatók és a legjobb erőismerők is lenni egyben, általában a két oldal egyikére estek át.";
+                    break;
+                case 5:
+                    cim = "Narancssárga"
+                    szoveg = "A tudás, bölcsesség és hatalom szimbólumává váló narancssárga fénykardok hihetetlenül ritkák és kifejezetten különleges célt szolgálnak. A narancssárga fénykard azt jelzi, hogy használójának az Erő világos és sötét oldala között finom egyensúlyt sikerült kialakítani. Az ilyen fegyvert birtokló erőhasználó nem fordított teljesen hátat egyik oldalnak sem, hanem valahol a közepén létezik. A hagyományos értékektől való elszakadást és egy kevésbé radikális hitrendszerbe való átmenetet jelentenek.";
+                    break;
+                case 6:
+                    cim = "Fehér"
+                    szoveg = "A Star Wars univerzumában a fehér fénykard egy különleges és jelentős szerepet tölt be. A fehér fénykard színének különlegessége abból ered, hogy a használói, valamikor korábban Sith vagy sötét oldalon szolgáltak, de azután átálltak a világos oldalra. Ahsoka Tano is egy olyan karakter, elfordult a Jedi-rendtől, majd később megtisztított egy vörös fénykardpárt, megalkotva fehér pengéjű kardjait. A fehér fénykard tehát a tisztaságot, az átalakulást és a megtisztulást szimbolizálja. Ez egyfajta jelkép arra, hogy a karakterek képesek voltak leküzdeni a sötétséget és visszatérni a világos oldalra."
+                    break;
+                case 7:
+                    cim = "Fekete"
+                    szoveg = '<span class="dolt">"A mandaloriak kifejlesztettek egy fénykardtípust?<br>Azt nem, ilyen kardból egyetlen egy van. A legenda szerint több mint ezer esztendeje készítette Tarre Vizsla, az első mandalori, akit felvettek a Jedi Rendbe. A halála után a Jedik a templomukban tartották a kardot. Mindaddig, amíg a Vizsla ház tagjai érte nem mentek és ki nem hozták. A Vizslák a nép egyesítésére és ellenszegülők legyőzésére használták. Egykor ezzel a karddal uralkodtak a Vizslák egész Mandalore fölött. A fegyver tehát a Vizsla ház fontos szimbóluma, de az összes többi klán is tiszteli."</span><br>-Kanan Jarrus és Fenn Rau<br><br><br>A Sötétkard egy régi, feketeszínű pengével rendelkező fénykard volt. Egyedi pengéje rövidebb volt a legtöbb fénykardénál és a hagyományos kardok kinézetéhez hasonlított. Külalakja összetéveszthetetlenül mandalori stílusú volt a maga szögletes kardgombjával, kézvédőjével és hasított pengekibocsátójával. A penge előhívásának hangja magasabb is volt a többi fénykardénál. A Sötétkard egy kristállyal rendelkezett, ami összeköttetésként szolgált az Erő-energiával. A kardforgató aktuális gondolatai és cselekedetei szerint viselkedett a penge energiája, például a kard elektromos behatást gyakorolt egy fokozott érzelmi állapotra reagálva. A Sötétkard továbbá ellen tudott állni a fénykardok pengéjének, ráadásul majdnem mágneses vonzással húzta magához a másik fegyvert. A mandaloriak a Vizsla-ház, és később a Halálőrség vezetésének jelképeként tekintettek a kardra. A mandalori szokások szerint csak úgy szerezheti meg valaki a Sötétkardot, ha harcban legyőzi előző tulajdonosát. Ha bármely más úton veszik birtokukba, a birtoklást törvénytelennek minősítették.';
+                    break;
+            }
+            document.getElementById("leirascim").innerHTML = cim;
+            document.getElementById("leirasszoveg").innerHTML = szoveg;
+        });
+
+    </script>
+</head>
+
+<body onload="setside()">
+    <div id="content">
+        <header>
+            <a href="index.html">
+                <img id="logo" src="./kepek/general/logo.png" alt="Star wars logo">
+            </a>
+        </header>
+        <nav>
+            <ul>
+                <li class="szelso"></li>
+                <li><a href="#" onclick="window.location.href=kezdolap();">Kezdőlap</a></li>
+                <li><a href="1fenykard.html">A&nbsp;fénykard</a></li>
+                <li><a href="2parbaj.html">A&nbsp;fénykardpárbaj</a></li>
+                <li><a href="3fajtai.html">Fajtái</a></li>
+                <li id="current"><a href="#">Színei</a></li>
+                <li><a href="5kulisszak.html">A&nbsp;kulisszák&nbsp;mögött</a></li>
+                <li><a href="6kviz.html">Kvíz</a></li>
+                <li class="szelso">
+                    <a href="#" onClick="oldalcsere(); setside()" onMouseOver="mouse_over()" onMouseOut="mouse_out()"
+                        class="szelso tooltip">
+                        <img src="./kepek/general/rebellion.png" alt="Oldalváltó" class="valaszto" id="rebellion">
+                        <img src="./kepek/general/empire.png" alt="Oldalváltó" class="valaszto" id="empire">
+                        <span class="tooltiptext">Oldalváltó</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="flex">
+            <article>
+                <p>
+                    A Star Wars világának leggyakoribb (és legismertebb) fénykardszínei a kék, a piros és a zöld.
+                    Lehetővé teszik, hogy különbséget tegyünk az erő sötét és világos oldala között. Azonban sokféle
+                    színűek ezek a fegyverek, a különböző árnyalatok megismerése pedig több információt fedhet fel, mint
+                    azt először gondolnánk.
+                </p>
+                <h1>Mi határozza meg a fénykard színét?</h1>
+                <p>
+                    A <a href="1fenykard.html#felepites">fénykard építőelemei</a> közül talán a legfontosabb a <a
+                        href="1fenykard.html#kyber">Kyber-kristály</a>. Ezek a Kyber-kristályok adják a fénykardok
+                    különböző színeit. Ritka, az erőhöz kapcsolódnak, és a természetből származnak (kivéve a sith-eket,
+                    akik szintetizált kyberkristályt használnak). A galaxis számos bolygóján megtalálhatóak, titokban
+                    jól őrzöttek.
+                </p>
+                <p>
+                    A kyberkristályok eleve nem színes, hanem a rájuk talált jedi személyiségétől vagy döntéseitől
+                    függően veszik fel a színüket. Így különböző színeket tudnak adni a fénykardoknak, bár az olyan
+                    árnyalatokat, mint a jellegzetes Sith-vörös, más módszerekkel érik el. Fontos legalább említés
+                    szintjén kitérni arra, hogy ezen fénykardoknak léteznek különböző árnyalatai. A Klónháborúk alatt
+                    Ahsoka Tano mindkét fénykardja zöld volt például, de a rövidebb, <a
+                        href="3fajtai.html#shoto">shoto-pengéjének</a> enyhén sárgás árnyalata volt. Remek példa az
+                    ilyen egyedi változatokra még Tera Sinube <a href="3fajtai.html#bot">sétapálca kardja</a>, amely a
+                    megszokottnál jóval világosabb kék pengével rendelkezik.
+                </p>
+                <p>
+                    A fénykardpengék színeinek megismerése lehetővé teszi, hogy jobban megértsd a karaktereket a
+                    pengéjük szerint. Válassz egy fénykardot, és tudd meg pengéje árnyalatának (nem hivatalos)
+                    jelentését.
+                </p>
+            </article>
+            <div class="gallery_container">
+                <div id="images" class="gallery">
+                    <img src="./kepek/szinek/kek.webp" alt="Obi-Wan Kenobi és a kardja" title="Kék fénykard">
+                    <img src="./kepek/szinek/zold.webp" alt="Luka Skywalker és a kardja" title="Zöld fénykard">
+                    <img src="./kepek/szinek/piros.webp" alt="Darth Maul és a kardja" title="Vörös fénykard">
+                    <img src="./kepek/szinek/lila.webp" alt="Mace Windu és a kardja" title="Lila fénykard">
+                    <img src="./kepek/szinek/sarga.webp" alt="A Jedi templom őrei és kardjaik" title="Sárga fénykard">
+                    <img src="./kepek/szinek/narancs.webp" alt="Cal Kestis és a kardja" title="Narancs fénykard">
+                    <img src="./kepek/szinek/feher.webp" alt="Ahsoka Tano  és a kardja" title="Fehér fénykard">
+                    <img src="./kepek/szinek/fekete.webp" alt="Din Djarin és a sötét kard" title="Fekete fénykard">
+                </div>
+            </div>
+            <article>
+                <h1 id="leirascim"></h1>
+                <p id="leirasszoveg"></p>
+            </article>
+        </div>
+    </div>
+    <footer>Az oldal kizárólag tanulmányi célú. - Besze Zsolt 2023 Corvinus</footer>
+</body>
+
+</html>

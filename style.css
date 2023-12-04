@@ -1,0 +1,397 @@
+/*ÁLTALÁNOS*/
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: garamond;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    background-image: url("./kepek/general/stars.jpg");
+    background-size: auto;
+    background-position: center;
+    background-repeat: repeat;
+    opacity: 90%;
+
+    /*------------------Ez azért kell, hogy a footer a lap alján maradjon.-------------------*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /*A viewport magasságának 100%-a.*/
+}
+
+#content {
+    flex: 1;
+    /*= flex-grow: 1; flex-shrink: 1; flex-basis: 0%;*/
+}
+
+/*---------------------------------------------------------------------------------------*/
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+header {
+    background-color: #fb860030;
+    padding: 1%;
+    text-align: center;
+}
+
+#logo {
+    width: 100%;
+    max-width: 300px;
+}
+
+#indexdiv {
+    flex-wrap: nowrap;
+}
+
+footer {
+    background: #fb8500;
+    width: 100%;
+    margin: 10px 0 0 0;
+    font-size: 2vh;
+    text-align: center;
+    border-top: 8px solid #e37800;
+    border-bottom: 8px solid #e37800;
+}
+
+/*NAVIGÁCIÓ*/
+nav {
+    background: #fb8500;
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 15px 0 0 0;
+    text-align: center;
+    border-top: 8px solid #e37800;
+    border-bottom: 8px solid #e37800;
+}
+
+nav ul {
+    list-style: none;
+    font-size: 25px;
+    padding: 0;
+    margin: 0 auto;
+    width: 75%;
+}
+
+nav ul li {
+    width: 100%;
+    background: #ffb703;
+}
+
+nav ul li a {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 7px;
+    border-width: 2px;
+    border-color: #ffe #aaab9c #ccc #fff;
+    border-style: solid;
+    color: #606060;
+    text-decoration: none;
+}
+
+nav ul li#current a {
+    background: #fb8500;
+    color: #800000;
+}
+
+nav ul li a:hover, ul#navlist li#current a:hover {
+    color: #800000;
+    background: transparent;
+    border-color: #aaab9c #fff #fff #ccc;
+}
+
+li.szelso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+a.szelso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    border: none;
+}
+
+img.valaszto {
+    width: 20px;
+}
+
+/*TARTALOM*/
+article {
+    width: 100%;
+    margin: 5px;
+    border-radius: 10px;
+    text-align: justify;
+    color: #023047;
+    background-color: #ffffff;
+}
+
+article article {
+    padding: 0;
+    margin: 0;
+}
+
+article a {
+    color: #800000;
+}
+
+article ul {
+    padding: 5px 10px 5px 20px;
+}
+
+.valassz {
+    display: flex;
+    margin: 1%;
+    padding: 0;
+    border: none;
+    border-radius: 5%;
+    flex-basis: 50%;
+    align-items: center;
+}
+
+p, h1 {
+    padding: 5px 10px;
+}
+
+h1 {
+    font-family: font1;
+}
+
+h1#valasztott {
+    text-align: center;
+    font-size: 1em;
+}
+
+.idezetbal, .idezetjobb {
+    font-size: 25px;
+}
+
+/*KÉPEK*/
+.fokep {
+    display: block;
+    max-width: 100%;
+    height: min-content;
+    align-self: center;
+}
+
+img.jobb, img.bal, .fokep2 {
+    border: 1px solid #e37800;
+    border-radius: 5%;
+}
+
+img.jobb {
+    float: right;
+    width: 300px;
+    max-width: 50%;
+    margin: 10px;
+}
+
+img.bal {
+    float: left;
+    width: 300px;
+    max-width: 50%;
+    margin: 10px;
+}
+
+img.kard {
+    display: block;
+    width: 95%;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #023047;
+    border-radius: 5%;
+}
+
+#vagasok {
+    width: 50%;
+    max-width: 50%;
+}
+
+/*GALÉRIA*/
+.gallery_container {
+    width: 95vw;
+}
+
+.gallery {
+    margin: 0;
+    width: 100%;
+    height: 60vw;
+}
+
+/*SPECIFIKUS TULAJDONSÁGOK*/
+.dolt {
+    font-style: italic;
+}
+
+.alulvont {
+    text-decoration: underline;
+}
+
+.vilagos {
+    background-color: #8ECAE6;
+}
+
+.sotet {
+    background-color: #FF3232;
+}
+
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+/*---------------------https://www.w3schools.com/css/css_tooltip.asp---------------------*/
+.tooltip {
+    position: relative;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #023047;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px solid;
+    border-color: transparent transparent #023047 transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/*BETŰTÍPUS*/
+@font-face {
+    font-family: font1;
+    src: url(./fonts/1.otf);
+}
+
+/*RESZPONZIVITÁS*/
+/*tablet*/
+@media all and (min-width: 600px) {
+
+    article, .gallery_container {
+        flex-basis: 85%;
+    }
+
+    .valassz {
+        flex-basis: 38%;
+    }
+
+    h1#valasztott {
+        font-size: 25px;
+    }
+
+    .idezetbal {
+        text-align: right;
+
+    }
+
+    .idezetjobb {
+        text-align: left;
+        order: 2;
+    }
+
+    .idezetbal, .idezetjobb {
+        flex-basis: 56%;
+        font-size: 30px;
+    }
+
+    .fojobb, .fobal {
+        display: flex;
+        max-width: 40%;
+        flex-basis: 40%;
+    }
+
+    .fobal {
+        order: 1;
+    }
+
+    img.kard {
+        width: 75%;
+        max-width: 75%;
+    }
+
+    img:hover.fokep {
+        transform: scale(1.02);
+    }
+
+    .gallery {
+        height: 45vw;
+    }
+}
+
+/*számítógép*/
+@media all and (min-width: 768px) {
+    nav {
+        padding: 15px 0;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        font-size: 2vw;
+    }
+
+    .tooltiptext {
+        font-size: 25px;
+    }
+
+    article, .gallery_container {
+        flex-basis: 75%;
+    }
+
+    .valassz {
+        flex-basis: 28%;
+    }
+
+    img.jobb, img.bal {
+        max-width: 40%;
+    }
+
+    img.kard {
+        width: 65%;
+        max-width: 65%;
+    }
+
+    .idezetbal, .idezetjobb {
+        flex-basis: 40%;
+        font-size: 35px;
+    }
+
+    .gallery {
+        height: 35vw;
+    }
+}
